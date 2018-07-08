@@ -1,17 +1,17 @@
 <div class="container-fluid">
   <nav class="navbar navbar-expand-sm bg-light navbar-light">
     <!-- Brand -->
-    <a class="navbar-brand" href="#home">OldSchool</a>
+    <a class="navbar-brand" href="#home" *ngIf="!isUserLoggedIn">OldSchool</a>
 
     <!-- Links -->
-    <ul class="nav nav-pills">
+    <ul class="nav nav-pills" *ngIf="isUserLoggedIn">
 
       <li class="nav-item">
-        <a class="nav-link" href="#myphotopage">My Photos</a>
+        <a class="nav-link" routerLink="/photos">Photos</a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="#myvideopage">My Videos</a>
+        <a class="nav-link" routerLink="/stories">School Stories</a>
       </li>
 
       <!-- Dropdown -->
@@ -24,10 +24,11 @@
           <a class="dropdown-item" href="#">Videos</a>
         </div>
       </li>
-      <ul class="navbar-brand ml-auto" style="flex: 5%">
-        <a style="color:whitesmoke" class="btn btn-success" href="/login">Login</a>
-        <a style="color:whitesmoke" class="btn btn-dark btn-space" routerLink="/register">Register</a>
-      </ul>
+      
+    </ul>
+    <ul class="navbar-brand ml-auto float-left" style="flex: 5%" *ngIf="!isUserLoggedIn">
+      <a style="color:whitesmoke" class="btn btn-success" (click)="hideLoginIfUserIsvalid()" routerLink="/login">Login</a>
+      <a style="color:whitesmoke" class="btn btn-dark btn-space" routerLink="/register">Register</a>
     </ul>
   </nav>
 </div>

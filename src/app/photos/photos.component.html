@@ -1,0 +1,41 @@
+<div class="container">
+  
+<div class="container-fluid" *ngIf="!isUserLoggedOut">
+  <nav class="navbar navbar-expand-sm bg-light navbar-light">
+    
+    <!-- Links -->
+    <ul class="nav nav-pills">
+
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/stories">School Stories</a>
+      </li>
+
+      <!-- Dropdown -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+          Upload
+        </a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="#">Photos</a>
+          <a class="dropdown-item" href="#">Videos</a>
+        </div>
+      </li>
+
+      <li class="float-right">
+        <a class="nav-link" style="color: red" (click)="logout()" href="#">Logout</a>
+      </li>
+      
+    </ul>
+  </nav>
+</div>
+
+<div class="jumbotron">
+  <div *ngFor = 'let images of myImagesObj'>
+    <ul class="card-body">
+       <li>{{images.id}}</li>
+       <img [src] = 'images.url'>
+       <hr>
+    </ul>
+ </div>
+</div>
+</div>
